@@ -1,0 +1,27 @@
+.square {
+    width: 100px;
+    height: 100px;
+    background: darkgrey;
+    position: relative;
+}
+
+.relative-box {
+    position: relative;
+    background: navy;
+    top: 10px;
+    left: 10px;
+}
+
+.absolute-box {
+    position: absolute;
+    background: red;
+    top: 30px;
+    left: 30px;
+}
+
+.square2 {
+    width: 100px;
+    height: 100px;
+    background: darkgrey;
+    position: static;
+}

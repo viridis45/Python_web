@@ -1,0 +1,20 @@
+<!--act1 > movie > templates > movie > edit.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-center">추가하기</h1>
+<form action="{% url 'movie:edit' movie.pk %}" method='POST'>
+    {% csrf_token %}
+    제목: <textarea name="title" id="" cols="20" rows="1">{{ movie.title }}</textarea><br>
+    대상: <textarea name="audience" id="" cols="10" rows="1">{{ movie.audience }}</textarea><br>
+    개봉일: <textarea name="open_date" id="" cols="20" rows="1">{{ movie.open_date|date:'Y-m-j' }}</textarea><br>
+    장르: <textarea name="genre" id="" cols="10" rows="1">{{ movie.genre }}</textarea><br>
+    평점: <textarea name="score" id="" cols="10" rows="1">{{ movie.score }}</textarea><br>
+
+
+    <input type="submit" value='저장하기'>
+
+</form>
+
+
+{% endblock %}

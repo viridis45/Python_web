@@ -1,0 +1,22 @@
+<!--act1 > movie > templates > movie > info.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<a href="{% url 'movie:index' %}">[목록]</a>
+<p style="text-align:center;">
+    <br><br>
+    <img src='{{ image }}' width='250' alt='randomgif'>
+    <h1 class='text-center'>{{ movie.title }}</h1>
+</p>
+<!-- <h1 class='text-center'>{{ movie.title }}</h1> -->
+<p>audience: {{ movie.audience }}</p>
+<p>open date : {{ movie.open_date }}</p>
+<p>genre : {{ movie.genre }}</p>
+
+<br><br><br><br>
+
+<a href="{% url 'movie:edit' movie.pk %}">[수정]</a>
+<a href="{% url 'movie:delete' movie.pk %}">[삭제]</a>
+
+{% endblock %}

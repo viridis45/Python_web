@@ -1,0 +1,25 @@
+body {
+    height: 2000px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.margin-100 {
+    margin: 100px;
+}
+
+.circle {
+    border-radius: 50%;
+}

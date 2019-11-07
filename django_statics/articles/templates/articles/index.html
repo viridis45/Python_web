@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    <h1>Articles!</h1>
+    <a href="{% url 'articles:create' %}">[+게시글 작성하기]</a>
+    {% for article in articles %}
+        <h1>제목: {{ article.title }}</h1>
+        {% if article.image %}
+        <img src="{{ article.image.url }}" alt="">
+        {% endif %}
+        <a href="{% url 'articles:detail' article.pk %}">[detail]</a>
+        <hr>
+    {% endfor %}
+
+    <img src="{% static 'articles/baby.jpg' %}" alt="sample">
+    <img src="{% static 'new_york.jpg' %}" alt="new_york">
+{% endblock %}
+

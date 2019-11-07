@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+{% if request.resolver_match.url_name == 'create' %}
+<h1>CREATE</h1>
+{% else %}
+<h1>UPDATE</h1>
+{% endif %}
+<!-- 
+(label+input)*2 하고 엔터 
+레이블의 for 가 id를 가리켜야 한다
+action tag가 빈 값이면 자기를 호출한곳으로 돌아감
+input tag 에서 name 으로 받은 값 넘겨줌
+-->
+
+<form action="", method='POST'>
+    {% csrf_token %} 
+    <!-- <labele for='title'>title</labele>
+    <input type="text" id='title' name='title'><br>
+    <labele for='content'>content</labele>
+    <textarea type="text" id='content' name='content'></textarea><br> -->
+
+    <!-- {{ form }} -->
+
+    <!-- {{ form.as_p }} bootstrap4 사용하면서 필요없음 -->
+    {% bootstrap_form form %}
+    {% buttons submit='Submit' reset='Cancel' %}
+    {% endbuttons %}
+
+    <!-- {{ form.title.lable_tag }}
+    {{ form.title }}
+    {{ form.content.lable_tag }}
+    {{ form.content }} 이런식으로 세부 컨트롤 가능-->
+
+    <input type="submit" value='Submit'>
+</form>
+
+{% endblock %}

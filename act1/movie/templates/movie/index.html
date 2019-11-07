@@ -1,0 +1,16 @@
+<!--act1 > movie > templates > movie > index.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1 class="text-center">Movie List</h1>
+    {% for movie in movies %}
+    <a href="{% url 'movie:info' movie.pk %}">제목: {{ movie.title }}</a>
+    <p>점수: {{ movie.score }}</p>
+    
+    <hr>
+    {% endfor %}
+
+<a href="{% url 'movie:new' %}">[add]</a><br>
+
+{% endblock %}

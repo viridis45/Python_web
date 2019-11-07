@@ -1,0 +1,16 @@
+<!-- templates/students/addstudent.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center">NEW</h1>
+    <form action="/students/studentadded/" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="name"><br>
+        <textarea name="email" id="" cols="25" rows="3"></textarea><br>
+        <input name="birthday"><br>
+        <input name="age"><br>
+
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}
