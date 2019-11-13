@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm #UserChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import login as auth_login
@@ -6,6 +6,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from .forms import CustomUserChangeForm, CustomUserCreationForm
+from django.contrib.auth import get_user_model
 
 
 
@@ -45,7 +46,7 @@ def login(request):
     else:
         form = AuthenticationForm()
     context = {'form':form}
-    return render(request, 'accounts/auth_form.html', context)
+    return render(request, 'accounts/login.html', context)
 
 
 def logout(request):
@@ -86,3 +87,12 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
     context = {'form':form}
     return render(request, 'accounts/auth_form.html', context)
+
+
+def profile(request, username):
+    # user모델을 가져오는 두 가지 방법
+    # 1. get_user_model() = 객체반환 (model.py  제외 전부)
+    # 2. srttings.AUTH_USER_MODEL - 스트링 반환 (model.py)
+    person = get_object_or_404(get_user_model(), username=username)
+    context = {'person': person}
+    return render(request, 'accounts/profile.html', context)

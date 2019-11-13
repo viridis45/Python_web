@@ -7,6 +7,8 @@
 {% else %}
 <h1>UPDATE</h1>
 {% endif %}
+
+
 <!-- 
 (label+input)*2 하고 엔터 
 레이블의 for 가 id를 가리켜야 한다
@@ -14,7 +16,7 @@ action tag가 빈 값이면 자기를 호출한곳으로 돌아감
 input tag 에서 name 으로 받은 값 넘겨줌
 -->
 
-<form action="", method='POST'>
+<form action="{% url 'articles:create' %}?next=/articles/test", method='POST'>
     {% csrf_token %} 
     <!-- <labele for='title'>title</labele>
     <input type="text" id='title' name='title'><br>

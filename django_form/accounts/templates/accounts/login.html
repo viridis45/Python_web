@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load socialaccount %}
 
 {% block body %}
 <h3>로그인</h3>
@@ -10,4 +11,6 @@
     {% endbuttons %}
 
 </form>
+<a href="{% provider_login_url 'kakao' %}" class='btn btn-warning'>카카오 로그인</a>
+
 {% endblock %}

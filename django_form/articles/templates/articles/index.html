@@ -2,14 +2,14 @@
 
 {% block body %}
     <h1>Article</h1>
-    <a href="{% url 'articles:create' %}">[NEW]</a>
-    {% for article in articles %}
-        <p>{{ article.pk }}</p>
-        <p>{{ article.title }}</p>
-        <a href="{% url 'articles:detail' article.pk %}">[DETAIL]</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'articles:create' %}">[NEW]</a>
+        {% else %}
+        <a href="{% url 'accounts:login' %}">새 글을 작성하려면 로그인 해주세요</a>
+    {% endif %}
 
-        <hr>
-    
+    {% for article in articles %}
+        {% include 'articles/_article.html' %}    
     {% endfor %}
 
 {% endblock %}

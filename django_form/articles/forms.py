@@ -32,8 +32,8 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = "__all__"
-
+        #fields = "__all__"
+        fields = ('title', 'content')
 # Article class의 모든것을 따로 지정하지 않아도 가져올 수 있음
 
 
